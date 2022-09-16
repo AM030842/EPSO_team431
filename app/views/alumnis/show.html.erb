@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mem id:</strong>
+  <%= @alumni.mem_Id %>
+</p>
+
+<p>
+  <strong>Mem email:</strong>
+  <%= @alumni.mem_Email %>
+</p>
+
+<p>
+  <strong>Mem name:</strong>
+  <%= @alumni.mem_Name %>
+</p>
+
+<p>
+  <strong>Mem degree:</strong>
+  <%= @alumni.mem_Degree %>
+</p>
+
+<p>
+  <strong>Mem dept:</strong>
+  <%= @alumni.mem_Dept %>
+</p>
+
+<%= link_to 'Edit', edit_alumni_path(@alumni) %> |
+<%= link_to 'Back', alumnis_path %>
