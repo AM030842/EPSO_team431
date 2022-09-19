@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Mem_id: 1
+  Mem_isActive: false
+  Mem_name: MyString
+  Mem_email: MyString
+  Mem_password: MyString
+  Mem_Points: 1
+  mem_Dept: MyString
+
+two:
+  Mem_id: 1
+  Mem_isActive: false
+  Mem_name: MyString
+  Mem_email: MyString
+  Mem_password: MyString
+  Mem_Points: 1
+  mem_Dept: MyString
