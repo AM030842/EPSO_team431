@@ -2,12 +2,14 @@
 
 one:
   meeting_id: 1
+  meeting_pts: 1
   meeting_title: MyString
-  meeting_time: 2022-09-19 19:40:36
+  meeting_time: 2022-10-03 22:04:33
   meeting_desc: MyText
 
 two:
   meeting_id: 1
+  meeting_pts: 1
   meeting_title: MyString
-  meeting_time: 2022-09-19 19:40:36
+  meeting_time: 2022-10-03 22:04:33
   meeting_desc: MyText

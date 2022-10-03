@@ -16,6 +16,7 @@ class MeetingsTest < ApplicationSystemTestCase
 
     fill_in "Meeting desc", with: @meeting.meeting_desc
     fill_in "Meeting", with: @meeting.meeting_id
+    fill_in "Meeting pts", with: @meeting.meeting_pts
     fill_in "Meeting time", with: @meeting.meeting_time
     fill_in "Meeting title", with: @meeting.meeting_title
     click_on "Create Meeting"
@@ -30,6 +31,7 @@ class MeetingsTest < ApplicationSystemTestCase
 
     fill_in "Meeting desc", with: @meeting.meeting_desc
     fill_in "Meeting", with: @meeting.meeting_id
+    fill_in "Meeting pts", with: @meeting.meeting_pts
     fill_in "Meeting time", with: @meeting.meeting_time
     fill_in "Meeting title", with: @meeting.meeting_title
     click_on "Update Meeting"
