@@ -17,7 +17,7 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create member" do
     assert_difference('Member.count') do
-      post members_url, params: { member: { Mem_Points: @member.Mem_Points, Mem_email: @member.Mem_email, Mem_id: @member.Mem_id, Mem_isActive: @member.Mem_isActive, Mem_name: @member.Mem_name, Mem_password: @member.Mem_password, mem_Dept: @member.mem_Dept } }
+      post members_url, params: { member: { Mem_Dept: @member.Mem_Dept, Mem_Points: @member.Mem_Points, Mem_email: @member.Mem_email, Mem_id: @member.Mem_id, Mem_isActive: @member.Mem_isActive, Mem_name: @member.Mem_name } }
     end
 
     assert_redirected_to member_url(Member.last)
@@ -34,7 +34,7 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update member" do
-    patch member_url(@member), params: { member: { Mem_Points: @member.Mem_Points, Mem_email: @member.Mem_email, Mem_id: @member.Mem_id, Mem_isActive: @member.Mem_isActive, Mem_name: @member.Mem_name, Mem_password: @member.Mem_password, mem_Dept: @member.mem_Dept } }
+    patch member_url(@member), params: { member: { Mem_Dept: @member.Mem_Dept, Mem_Points: @member.Mem_Points, Mem_email: @member.Mem_email, Mem_id: @member.Mem_id, Mem_isActive: @member.Mem_isActive, Mem_name: @member.Mem_name } }
     assert_redirected_to member_url(@member)
   end
 

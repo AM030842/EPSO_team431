@@ -14,13 +14,12 @@ class MembersTest < ApplicationSystemTestCase
     visit members_url
     click_on "New Member"
 
+    fill_in "Mem dept", with: @member.Mem_Dept
     fill_in "Mem points", with: @member.Mem_Points
     fill_in "Mem email", with: @member.Mem_email
     fill_in "Mem", with: @member.Mem_id
     check "Mem isactive" if @member.Mem_isActive
     fill_in "Mem name", with: @member.Mem_name
-    fill_in "Mem password", with: @member.Mem_password
-    fill_in "Mem dept", with: @member.mem_Dept
     click_on "Create Member"
 
     assert_text "Member was successfully created"
@@ -31,13 +30,12 @@ class MembersTest < ApplicationSystemTestCase
     visit members_url
     click_on "Edit", match: :first
 
+    fill_in "Mem dept", with: @member.Mem_Dept
     fill_in "Mem points", with: @member.Mem_Points
     fill_in "Mem email", with: @member.Mem_email
     fill_in "Mem", with: @member.Mem_id
     check "Mem isactive" if @member.Mem_isActive
     fill_in "Mem name", with: @member.Mem_name
-    fill_in "Mem password", with: @member.Mem_password
-    fill_in "Mem dept", with: @member.mem_Dept
     click_on "Update Member"
 
     assert_text "Member was successfully updated"
