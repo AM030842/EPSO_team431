@@ -16,7 +16,7 @@ application up and running.
 	- JBuilder - 2.7
 
 * Database creation
-	- Scaffolding with Rails into Posgresql
+	- Scaffolding with Rails into Postgresql
 
 * Database initialization
 	- Pre-established on Rails/Heroku
