@@ -16,8 +16,8 @@
     <% @attendances.each do |attendance| %>
       <tr>
         
-        <td><%= attendance.Meeting_id %></td>
-        <td><%= attendance.Mem_id %></td>
+        <td><%= meeting.where(id: attendance.Meeting_id).last.Meeting_title %></td>
+        <td><%= member.where(id: attendance.Mem_id).last.Mem_name %></td>
         <td><%= attendance.Att_time %></td>
         <td><%= link_to 'Show', attendance %></td>
         <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
@@ -30,3 +30,15 @@
 <br>
 
 <%= link_to 'New Attendance', new_attendance_path %>
+
+<br>
+
+<%= link_to 'View All Meetings', meetings_path %>
+
+<br>
+
+<%= link_to 'Member List', members_path %>
+
+<br>
+
+<%= link_to 'Alumni List', alums_path %>
