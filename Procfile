@@ -1,1 +1,1 @@
-release: rails db:migrate:down VERSION=20200526083835
+release: rails db:migrate:redo
