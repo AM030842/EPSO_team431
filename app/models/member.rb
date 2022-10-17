@@ -1,4 +1,3 @@
 class Member < ApplicationRecord
-    has_many :meetings
-    has_many :attendances
+    has_many :meetings, through: :meetings
 end
