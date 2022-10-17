@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(version: 2022_10_06_165039) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "logs", force: :cascade do |t|
-    t.datetime "timestamp"
-    t.integer "operation_id"
-    t.string "operation_type"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "meetings", force: :cascade do |t|
     t.integer "meeting_id"
     t.integer "meeting_pts"
