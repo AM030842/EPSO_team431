@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mem:</strong>
+  <%= @alum.Mem_id %>
+</p>
+
+<p>
+  <strong>Mem isactive:</strong>
+  <%= @alum.Mem_isActive %>
+</p>
+
+<p>
+  <strong>Mem name:</strong>
+  <%= @alum.Mem_name %>
+</p>
+
+<p>
+  <strong>Mem email:</strong>
+  <%= @alum.Mem_email %>
+</p>
+
+<p>
+  <strong>Mem points:</strong>
+  <%= @alum.Mem_Points %>
+</p>
+
+<p>
+  <strong>Mem dept:</strong>
+  <%= @alum.Mem_Dept %>
+</p>
+
+<%= link_to 'Edit', edit_alum_path(@alum) %> |
+<%= link_to 'Back', alums_path %>
