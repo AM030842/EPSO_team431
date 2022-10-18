@@ -1,4 +1,3 @@
 class ApplicationController < ActionController::Base
-    def home
-    end
+    before_action :authenticate_admin!
 end
