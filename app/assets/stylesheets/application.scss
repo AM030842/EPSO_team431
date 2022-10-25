@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @font-face {
+    font-family: NotoColorEmojiLimited;
+    unicode-range: U+1F1E6-1F1FF;
+    src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
+}
+  
+div {
+    font-family: 'NotoColorEmojiLimited', -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+input {
+    font-family: 'NotoColorEmojiLimited'
+}
+
+body{
+	background-color: #a76042;
+}
+
+header{
+	text-align: center;
+	font-weight: 1000;
+}
+
+.btn-primary{
+    font-size: xx-large;
+    background-color: #C9Ac98 !important;
+    border-color: #C9Ac98 !important;
+    margin: 0.5%;
+}
+h1{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+a{
+    font-family: 'NotoColorEmojiLimited'
+}
+#listAllCountry{
+    display:none;
+}
+#listAllCategory{
+    display:none;
+}
+#randomCountry{
+    display:none;
+}
+#randomCategory{
+    display:none;
+}
