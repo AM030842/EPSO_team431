@@ -5,12 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Mem</th>
-      <th>Mem isactive</th>
-      <th>Mem name</th>
-      <th>Mem email</th>
-      <th>Mem points</th>
-      <th>Mem dept</th>
+      <th>Mem ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Points</th>
+      <th>Division</th>
+      <th>Degree</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,14 +19,14 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.Mem_id %></td>
-        <td><%= member.Mem_isActive %></td>
         <td><%= member.Mem_name %></td>
         <td><%= member.Mem_email %></td>
         <td><%= member.Mem_Points %></td>
         <td><%= member.Mem_Dept %></td>
+        <td><%= member.Mem_degree %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,11 +34,11 @@
 
 <br>
 
-<%= link_to 'New Member', new_member_path %>
+<%= link_to 'Add Member', new_member_path %>
 
 <br>
 
-<%= link_to 'Get Meeting Points', new_attendance_path %>
+<%= link_to 'Attend Meeting', new_attendance_path %>
 
 <br>
 
