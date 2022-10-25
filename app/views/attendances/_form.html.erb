@@ -23,8 +23,9 @@
 
   <div class="field">
     <%= form.label :Time %>
-    <%= Time.zone.now %>
-  </div>
+    <%= Time.now.in_time_zone("Central Time (US & Canada)").strftime('%l:%M%P %B %-d, %Y ') %>
+ </div>
+ 
 
   <div class="actions">
     <%= form.submit %>
