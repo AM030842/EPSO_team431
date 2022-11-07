@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :alums
+  resources :meetings
+  resources :members
+  resources :attendances
   resources :members
   resources :alums
   resources :meetings
