@@ -1,33 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mem:</strong>
-  <%= @member.Mem_id %>
+  <strong>Name:</strong>
+  <%= @member.name %>
 </p>
 
 <p>
-  <strong>Mem isactive:</strong>
-  <%= @member.Mem_isActive %>
+  <strong>Email:</strong>
+  <%= @member.email %>
 </p>
 
 <p>
-  <strong>Mem name:</strong>
-  <%= @member.Mem_name %>
+  <strong>Points:</strong>
+  <%= @member.points %>
 </p>
 
 <p>
-  <strong>Mem email:</strong>
-  <%= @member.Mem_email %>
+  <strong>Degree:</strong>
+  <%= @member.degree %>
 </p>
 
 <p>
-  <strong>Mem points:</strong>
-  <%= @member.Mem_Points %>
-</p>
-
-<p>
-  <strong>Mem dept:</strong>
-  <%= @member.Mem_Dept %>
+  <strong>Division:</strong>
+  <%= @member.division %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
