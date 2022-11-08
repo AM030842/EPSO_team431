@@ -65,6 +65,6 @@ class AlumsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def alum_params
-      params.require(:alum).permit(:Mem_id, :Mem_isActive, :Mem_name, :Mem_email, :Mem_Points, :Mem_Dept)
+      params.require(:alum).permit(:name, :email, :degree, :divsion)
     end
 end

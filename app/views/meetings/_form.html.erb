@@ -12,28 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :meeting_id %>
-    <%= form.number_field :meeting_id %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :meeting_pts %>
-    <%= form.number_field :meeting_pts %>
+    <%= form.label :time %>
+    <%= form.datetime_select :time %>
   </div>
 
   <div class="field">
-    <%= form.label :meeting_title %>
-    <%= form.text_field :meeting_title %>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :meeting_time %>
-    <%= form.datetime_select :meeting_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :meeting_desc %>
-    <%= form.text_area :meeting_desc %>
+    <%= form.label :points %>
+    <%= form.number_field :points %>
   </div>
 
   <div class="actions">
