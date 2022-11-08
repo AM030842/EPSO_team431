@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :degree %>
-    <%= form.text_field :degree %>
+    <%= form.select :degree, [['Masters (traditional)'],['Masters (online)'],['PhD']], include_blank: true %>
   </div>
 
   <div class="field">
     <%= form.label :division %>
-    <%= form.text_field :division %>
+    <%= form.select :divsion, [['Learning Sciences'],['Counseling Psychology'],['Special Education'],['Research, Measurement and Statistics'],['Bilingual Education']], include_blank: true %>
   </div>
 
   <div class="actions">

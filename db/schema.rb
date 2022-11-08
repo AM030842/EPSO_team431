@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_220159) do
+ActiveRecord::Schema.define(version: 2022_11_07_195741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,41 +26,37 @@ ActiveRecord::Schema.define(version: 2022_10_17_220159) do
   end
 
   create_table "alums", force: :cascade do |t|
-    t.integer "Mem_id"
-    t.boolean "Mem_isActive"
-    t.string "Mem_name"
-    t.string "Mem_email"
-    t.integer "Mem_Points"
-    t.string "Mem_Dept"
+    t.string "name"
+    t.string "email"
+    t.string "degree"
+    t.string "divsion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "attendances", force: :cascade do |t|
-    t.integer "Meeting_id"
-    t.integer "Mem_id"
-    t.datetime "Att_time"
+    t.integer "meeting_id"
+    t.integer "member_id"
+    t.datetime "att_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.integer "meeting_id"
-    t.integer "meeting_pts"
-    t.string "meeting_title"
-    t.datetime "meeting_time"
-    t.text "meeting_desc"
+    t.string "title"
+    t.datetime "time"
+    t.string "description"
+    t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "Mem_id"
-    t.boolean "Mem_isActive"
-    t.string "Mem_name"
-    t.string "Mem_email"
-    t.integer "Mem_Points"
-    t.string "Mem_Dept"
+    t.string "name"
+    t.string "email"
+    t.integer "points"
+    t.string "degree"
+    t.string "division"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

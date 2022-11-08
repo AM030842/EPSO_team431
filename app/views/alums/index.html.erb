@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Alums</h1>
+<h1>Alumni</h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
         <td><%= alum.divsion %></td>
         <td><%= link_to 'Show', alum %></td>
         <td><%= link_to 'Edit', edit_alum_path(alum) %></td>
-        <td><%= link_to 'Destroy', alum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', alum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,8 @@
 
 <br>
 
-<%= link_to 'New Alum', new_alum_path %>
+<%= link_to 'Add Contact', new_alum_path %>
+
+<br>
+
+<%= link_to 'Home', '/' %>
