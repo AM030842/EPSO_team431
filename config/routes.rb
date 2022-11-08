@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   resources :meetings
   resources :members
   resources :attendances
-  resources :members
-  resources :alums
-  resources :meetings
-  resources :attendances
 
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
