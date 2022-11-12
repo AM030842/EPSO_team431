@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Member List</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,12 +13,25 @@
 
   <body>
     <%= yield %>
-    <p id="notice"><%= notice %></p>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" type="button" href="/members/new">ADD MEMBER</a>
+    <a class="btn btn-outline-success" type="button" href="/attendances/new">GET POINTS</a>
+    <a class="btn btn-outline-primary" type="button" href="/meetings">MEETING LIST</a>
+    <a class="btn btn-outline-success" type="button" href="/alums">ALUMNI LIST</a>
+  </form>
+</nav>
+
+<p id="notice"><%= notice %></p>
+
+
 
 <h1>Members</h1>
 
 <div class="container" id="table_container">
-<table style="width: 500px;" class="table table-striped table-hover table-bordered">
+<table style="width: 80%;" class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -48,18 +61,5 @@
 </div>
 
 <br>
-
-<%= link_to 'Add Member', new_member_path %>
-
-<br>
-<%= link_to 'Get Meeting Points', new_attendance_path %>
-<br>
-<%= link_to 'View All Meetings', meetings_path %>
-<br>
-<%= link_to 'Alumni List', alums_path %>
-
-<br>
-
-<%= link_to 'Home', '/' %>
 </body>
 </html>
