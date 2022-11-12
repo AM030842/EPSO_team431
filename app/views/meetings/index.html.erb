@@ -1,15 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Member List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Warning !! ensure that "stylesheet_pack_tag" is used, line below -->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <form class="form-inline">
+    <a class="btn btn-outline-primary" type="button" href="/meetings/new">ADD MEETING</a>
+    <a class="btn btn-outline-success" type="button" href="/attendances/new">GET POINTS</a>
+    <a class="btn btn-outline-primary" type="button" href="/members">MEMBER LIST</a>
+    <a class="btn btn-outline-success" type="button" href="/alums">ALUMNI LIST</a>
+  </form>
+</nav>
 <p id="notice"><%= notice %></p>
 
 <h1>Meetings</h1>
 
-<table>
+<div class="container" id="table_container">
+<table style="width: 80%;" class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
       <th>Title</th>
       <th>Time</th>
       <th>Description</th>
       <th>Points</th>
-      <th colspan="3"></th>
+      <th colspan="3">Operation</th>
     </tr>
   </thead>
 
@@ -27,20 +50,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Add Meeting', new_meeting_path %>
-
-<br>
-
-
-<%= link_to 'Member', members_path %>
-
-<br>
-
-<%= link_to 'Alumni', alums_path %>
-
-<br>
-
-<%= link_to 'Home', '/' %>
+</div>

@@ -1,13 +1,25 @@
 class MembersController < ApplicationController
   before_action :set_member, only: %i[ show edit update destroy ]
 
-  # GET /members or /members.json
+  #GET /members or /members.json
   def index
-    @members = Member.all
+    if params[:sort]
+      @members = Member.order(params[:sort])
+    elsif params[:search]
+      @members = search_members
+    else
+      @members = Member.all
+    end
   end
+def search_members 
+  if @member = Member.all.find{|member| member.name.include?(params[:search])} 
+    redirect_to member_path( @member ) 
+  end 
+end
 
   # GET /members/1 or /members/1.json
   def show
+    @member = Member.find(params[:id]) 
   end
 
   # GET /members/new
@@ -62,6 +74,7 @@ class MembersController < ApplicationController
     def set_member
       @member = Member.find(params[:id])
     end
+
 
     # Only allow a list of trusted parameters through.
     def member_params
