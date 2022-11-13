@@ -52,7 +52,7 @@ class AttendancesController < ApplicationController
     @attendance.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: "Attendance was successfully destroyed." }
+      format.html { redirect_to attendances_url, notice: "Attendance was successfully deleted." }
       format.json { head :no_content }
     end
   end

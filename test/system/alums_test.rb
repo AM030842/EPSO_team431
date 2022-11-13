@@ -48,6 +48,6 @@ class AlumsTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Alum was successfully destroyed"
+    assert_text "Alum was successfully deleted"
   end
 end
