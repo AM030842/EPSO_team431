@@ -13,7 +13,7 @@ class MeetingsController < ApplicationController
   end
 def search_meetings 
   if @meeting = Meeting.all.find{|meeting| meeting.title.include?(params[:search])} 
-    redirect_to meeting_path( @meeting )
+    @meetings = Meeting.where("title LIKE ?", "%#{params[:search]}%")
   else
     # render html: "<script>alert('No users!')</script>".html_safe
     @meetings = Meeting.all
