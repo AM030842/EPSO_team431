@@ -70,3 +70,6 @@ gem "omniauth-rails_csrf_protection"
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+
+gem "pundit"
+gem "rolify"
