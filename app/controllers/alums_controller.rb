@@ -14,7 +14,7 @@ class AlumsController < ApplicationController
 
 def search_alums 
   if @alum = Alum.all.find{|alum| alum.name.include?(params[:search])} 
-    redirect_to alum_path( @alum )
+    @alums = Alum.where("name LIKE ?", "%#{params[:search]}%")
   else
     # render html: "<script>alert('No users!')</script>".html_safe
     @alums = Alum.all

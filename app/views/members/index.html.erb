@@ -17,7 +17,7 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="/">Home</a>
   <form class="form-inline">
-    <a class="btn btn-outline-primary" type="button" href="/members/new">ADD MEMBER</a>
+    <a class="btn btn-outline-primary" type="button" href="/members/new">REGIST NEW MEMBER</a>
     <a class="btn btn-outline-success" type="button" href="/attendances/new">GET POINTS</a>
     <a class="btn btn-outline-primary" type="button" href="/meetings">MEETING LIST</a>
     <a class="btn btn-outline-success" type="button" href="/alums">ALUMNI LIST</a>
@@ -50,7 +50,7 @@
   </thead>
 
   <tbody>
-    <% @members.each do |member| %>
+    <% @members.each do |member| %> 
       <tr>
         <td><%= member.name %></td>
         <td><%= member.email %></td>

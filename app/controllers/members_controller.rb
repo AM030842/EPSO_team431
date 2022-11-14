@@ -13,7 +13,8 @@ class MembersController < ApplicationController
   end
 def search_members 
   if @member = Member.all.find{|member| member.name.include?(params[:search])} 
-    redirect_to member_path( @member )
+    # redirect_to member_path( @member )
+    @members = Member.where("name LIKE ?", "%#{params[:search]}%")
   else
     # render html: "<script>alert('No users!')</script>".html_safe
     @members = Member.all
