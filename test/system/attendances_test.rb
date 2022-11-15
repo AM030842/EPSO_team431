@@ -42,6 +42,6 @@ class AttendancesTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Attendance was successfully destroyed"
+    assert_text "Attendance record was successfully deleted."
   end
 end

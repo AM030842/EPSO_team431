@@ -73,3 +73,6 @@ gem 'bootstrap-sass'
 
 gem "pundit"
 gem "rolify"
+
+gem 'will_paginate', '~> 3.3'
+gem 'bootstrap-will_paginate'

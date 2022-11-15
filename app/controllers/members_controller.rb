@@ -1,13 +1,32 @@
 class MembersController < ApplicationController
   before_action :set_member, only: %i[ show edit update destroy ]
 
-  # GET /members or /members.json
+  #GET /members or /members.json
   def index
-    @members = Member.all
+    if params[:sort]
+      @members = Member.order(params[:sort])
+    elsif params[:search]
+      @members = search_members
+    else
+      @members = Member.all
+    end
   end
+def search_members 
+  if @member = Member.all.find{|member| member.name.include?(params[:search])} 
+    # redirect_to member_path( @member )
+    @members = Member.where("name LIKE ?", "%#{params[:search]}%")
+  else
+    # render html: "<script>alert('No users!')</script>".html_safe
+    @members = Member.all
+    redirect_to "/members"
+    flash[:notice] = "No User Found."
+
+  end 
+end
 
   # GET /members/1 or /members/1.json
   def show
+    @member = Member.find(params[:id]) 
   end
 
   # GET /members/new
@@ -52,7 +71,7 @@ class MembersController < ApplicationController
     @member.destroy
 
     respond_to do |format|
-      format.html { redirect_to members_url, notice: "Member was successfully destroyed." }
+      format.html { redirect_to members_url, notice: "Member was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -62,6 +81,7 @@ class MembersController < ApplicationController
     def set_member
       @member = Member.find(params[:id])
     end
+
 
     # Only allow a list of trusted parameters through.
     def member_params

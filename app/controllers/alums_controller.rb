@@ -3,8 +3,27 @@ class AlumsController < ApplicationController
 
   # GET /alums or /alums.json
   def index
-    @alums = Alum.all
+    if params[:sort]
+      @alums = Alum.order(params[:sort])
+    elsif params[:search]
+      @alums = search_alums
+    else
+      @alums = Alum.all
+    end
   end
+
+def search_alums 
+  if @alum = Alum.all.find{|alum| alum.name.include?(params[:search])} 
+    @alums = Alum.where("name LIKE ?", "%#{params[:search]}%")
+  else
+    # render html: "<script>alert('No users!')</script>".html_safe
+    @alums = Alum.all
+    redirect_to "/alums"
+    flash[:notice] = "No Alumni Found."
+
+  end 
+end
+
 
   # GET /alums/1 or /alums/1.json
   def show
@@ -52,7 +71,7 @@ class AlumsController < ApplicationController
     @alum.destroy
 
     respond_to do |format|
-      format.html { redirect_to alums_url, notice: "Alum was successfully destroyed." }
+      format.html { redirect_to alums_url, notice: "Alum was successfully deleted." }
       format.json { head :no_content }
     end
   end
