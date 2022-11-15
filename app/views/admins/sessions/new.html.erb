@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: inherit">
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
@@ -28,8 +28,8 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"> <%= link_to "Google Sign in", admin_google_oauth2_omniauth_authorize_path, :class=>"nav-link"  %>"></li>
-                                        
+                        <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
+                        <li class="nav-item"> <%= link_to "Google Sign in", admin_google_oauth2_omniauth_authorize_path, :class=>"nav-link"  %>"></li>                
                     </ul>
                 </div>
             </div>

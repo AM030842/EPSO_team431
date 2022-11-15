@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" style="font-size: inherit">
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
@@ -48,7 +48,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 <div class="row" style="padding-right:10%">
                     <div class="col-4">
                         <div class="card" >
-                               <i  style="color:black; font-size: 80px" class="fa-solid fa-people-group"></i>
+                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-group"></i>
                                 <div class="card-body">
                                     <%= link_to 'Members', '/members', :class=>"btn btn-primary"%>
                                     <h5 class="card-title">Show member points</h5>
@@ -58,19 +58,19 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                         <div class="col-4">
 
                         <div class="card" >
-                               <i  style="color:black; font-size: 80px" class="fa-solid fa-user-clock"></i>
+                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-user-clock"></i>
                                 <div class="card-body">
                                     <%= link_to 'Attendance', '/attendances', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title"><em>Show attendance history</em></h5>
+                                    <h5 class="card-title">Show attendance history</h5>
                                 </div>
                         </div>
                         </div>
                         <div class="col-4">
                         <div class="card" >
-                               <i  style="color:black; font-size: 80px" class="fa-solid fa-people-roof"></i>
+                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-roof"></i>
                                 <div class="card-body">
                                     <%= link_to 'Meetings', '/meetings', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title"><em>Show meeting history</em></h5>
+                                    <h5 class="card-title">Show meeting history</h5>
                                 </div>
                         </div>
                         </div>
@@ -81,7 +81,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         <br>
         <br> 
         <!-- Footer-->
-        <footer class="py-5 bg-black">
+        <footer class="py-5 bg-black fixed-bottom">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
