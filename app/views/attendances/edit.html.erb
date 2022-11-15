@@ -1,6 +1,27 @@
 <h1>Editing Attendance</h1>
 
-<%= render 'form', attendance: @attendance %>
+<%= form_with model: @attendance do |form| %>
+ <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+        <% @attendance.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Time %>
+    <%= form.datetime_select :att_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @attendance %> |
 <%= link_to 'Back', attendances_path %>
