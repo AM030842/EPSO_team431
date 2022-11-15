@@ -37,10 +37,48 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         <!-- Header-->  
 
                 <div class="container px-5" style="padding-top:7%">
-                    <h1 class="masthead-heading mb-0">User View</h1>
-                
-                    <h2 class="masthead-subheading mb-0"><em>Click on any tile to view a dashboard</em></h2>
+                    <h1 class="masthead-heading mb-0">Welcome, <%=current_admin.full_name %> </h1>
                 </div>
+        <!-- Content section 1-->
+
+        <br><br>
+          <section>
+            <div class="container px-5">
+                <div class="row" style="padding-right:10%">
+                    <div class="col-4">
+                        <div class="card" >
+                               <i  style="color:black; font-size: 80px" class="fa-solid fa-people-group"></i>
+                                <div class="card-body">
+                                    <%= link_to 'Register', '/members/new', :class=>"btn btn-primary"%>
+                                    <h5 class="card-title">New? Register as an EPSO member</h5>
+                                </div>
+                        </div>
+                        </div>
+                        <div class="col-4">
+
+                        <div class="card" >
+                               <i  style="color:black; font-size: 80px" class="fa-solid fa-user-clock"></i>
+                                <div class="card-body">
+                                    <%= link_to 'Attend Meeting', '/attendances/new', :class=>"btn btn-primary"%>
+                                    <h5 class="card-title"><em>Once you have registered, you can attend a meeting</em></h5>
+                                </div>
+                        </div>
+                        </div>
+                        <div class="col-4">
+                        <div class="card" >
+                               <i  style="color:black; font-size: 80px" class="fa-solid fa-people-roof"></i>
+                                <div class="card-body">
+                                    <%= link_to 'Attendance List', '/attendances', :class=>"btn btn-primary"%>
+                                    <h5 class="card-title"><em>Show all attendance history</em></h5>
+                                </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <br> 
         <!-- Content section 1-->
 
         <!-- Footer-->
