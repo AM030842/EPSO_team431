@@ -60,6 +60,13 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
+        meetingId = @attendance.meeting_id
+        memberId = @attendance.member_id
+        meetingPoint = Meeting.where("id =?", meetingId).last.points
+        memberPoint = Member.where("id =?", memberId).last.points
+        currPoint = meetingPoint + memberPoint
+
+        Member.where("id =?", memberId).update(points:"#{currPoint}")
         format.html { redirect_to attendance_url(@attendance), notice: "Attendance was successfully created." }
         format.json { render :show, status: :created, location: @attendance }
       else
@@ -84,6 +91,13 @@ class AttendancesController < ApplicationController
 
   # DELETE /attendances/1 or /attendances/1.json
   def destroy
+        meetingId = @attendance.meeting_id
+        memberId = @attendance.member_id
+        meetingPoint = Meeting.where("id =?", meetingId).last.points
+        memberPoint = Member.where("id =?", memberId).last.points
+        currPoint = memberPoint - meetingPoint
+
+        Member.where("id =?", memberId).update(points:"#{currPoint}")
     @attendance.destroy
 
     respond_to do |format|
