@@ -66,3 +66,13 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+
+
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+
+gem "pundit"
+gem "rolify"
+
+gem 'will_paginate', '~> 3.3'
+gem 'bootstrap-will_paginate'

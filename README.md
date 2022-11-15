@@ -16,6 +16,11 @@ application up and running.
 	- Webpacker - 5.0
 	- Turbolinks -5
 	- JBuilder - 2.7
+	- Bootstrap
+	- JQuery
+	- Devise
+	- OmniAuth
+	- Pundit
 ## External Deps
 * Docker - Download latest version at https://www.docker.com/products/docker-desktop
 

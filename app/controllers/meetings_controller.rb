@@ -3,8 +3,25 @@ class MeetingsController < ApplicationController
 
   # GET /meetings or /meetings.json
   def index
-    @meetings = Meeting.all
+    if params[:sort]
+      @meetings = Meeting.order(params[:sort])
+    elsif params[:search]
+      @meetings = search_meetings
+    else
+      @meetings = Meeting.all
+    end
   end
+def search_meetings 
+  if @meeting = Meeting.all.find{|meeting| meeting.title.include?(params[:search])} 
+    @meetings = Meeting.where("title LIKE ?", "%#{params[:search]}%")
+  else
+    # render html: "<script>alert('No users!')</script>".html_safe
+    @meetings = Meeting.all
+    redirect_to "/meetings"
+    flash[:notice] = "No Meeting Found."
+
+  end 
+end
 
   # GET /meetings/1 or /meetings/1.json
   def show
@@ -52,7 +69,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      format.html { redirect_to meetings_url, notice: "Meeting was successfully deleted." }
       format.json { head :no_content }
     end
   end

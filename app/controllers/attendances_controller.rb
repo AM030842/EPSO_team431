@@ -3,7 +3,42 @@ class AttendancesController < ApplicationController
 
   # GET /attendances or /attendances.json
   def index
-    @attendances = Attendance.all
+    if params[:sort]
+      @attendances = Attendance.order(params[:sort])
+    elsif not(params[:search_name].blank?)
+        @attendances = search_att_name
+    elsif not(params[:search_title].blank?)
+      @attendances = search_att_title
+    else
+      @attendances = Attendance.all
+    end
+  end
+
+  def search_att_name
+    if @attendances = Attendance.all.find{|attendance| Member.where(id: attendance.member_id).last.name.eql?(params[:search_name])} 
+      # redirect_to member_path( @member )
+      @attendeances = Attendance.where("member_id = ?", Member.where("name = ?","#{params[:search_name]}").last.id.to_s)
+    else
+      # render html: "<script>alert('No users!')</script>".html_safe
+      @attandances = Attendance.all
+      redirect_to "/attendances"
+      flash[:notice] = "No Record Found."
+  
+    end 
+  end
+
+  def search_att_title
+    if @attendances = Attendance.all.find{|attendance| Meeting.where(id: attendance.meeting_id).last.title.eql?(params[:search_title])} 
+      # redirect_to member_path( @member )
+      @attendeances = Attendance.where("meeting_id =?", Meeting.where("title LIKE ?","#{params[:search_title]}").last.id)
+    else
+      # render html: "<script>alert('No users!')</script>".html_safe
+      @attandances = Attendance.all
+      redirect_to "/attendances"
+      flash[:notice] = "No Record Found."
+  
+  
+    end 
   end
 
   # GET /attendances/1 or /attendances/1.json
@@ -25,6 +60,13 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
+        meetingId = @attendance.meeting_id
+        memberId = @attendance.member_id
+        meetingPoint = Meeting.where("id =?", meetingId).last.points
+        memberPoint = Member.where("id =?", memberId).last.points
+        currPoint = meetingPoint + memberPoint
+
+        Member.where("id =?", memberId).update(points:"#{currPoint}")
         format.html { redirect_to attendance_url(@attendance), notice: "Attendance was successfully created." }
         format.json { render :show, status: :created, location: @attendance }
       else
@@ -49,10 +91,17 @@ class AttendancesController < ApplicationController
 
   # DELETE /attendances/1 or /attendances/1.json
   def destroy
+        meetingId = @attendance.meeting_id
+        memberId = @attendance.member_id
+        meetingPoint = Meeting.where("id =?", meetingId).last.points
+        memberPoint = Member.where("id =?", memberId).last.points
+        currPoint = memberPoint - meetingPoint
+
+        Member.where("id =?", memberId).update(points:"#{currPoint}")
     @attendance.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: "Attendance was successfully destroyed." }
+      format.html { redirect_to attendances_url, notice: "Attendance was successfully deleted." }
       format.json { head :no_content }
     end
   end
