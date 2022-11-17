@@ -26,11 +26,11 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances/new", :class=>"nav-link" %></li>
-                            <li class="nav-item"><%= link_to "Member List", href="/members", :class=>"nav-link" %></li>
-                            <li class="nav-item"><%= link_to "Meeting List", href="/meetings", :class=>"nav-link" %></li>
-                            <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                            <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li> 
                      </ul>         
                 </div>
             </div>
@@ -43,6 +43,9 @@
 <br>
 
 <div class="container" id="table_container">
+
+<%= link_to 'Submit Attendance', '/attendances/new', :class=>"btn btn-primary"%>
+
 <%= form_tag(attendances_path, method: :get) do %>
   <p> Search by member's name (strict search)</p>
   <%= text_field_tag(:search_name, params[:search_name]) %>
@@ -52,6 +55,7 @@
   <p> Search by title of meeting (strict search)</p>
   <%= text_field_tag(:search_title, params[:search_title]) %>
   <%= submit_tag ("Search") %>
+
 <% end %>
 <br>
 <table style="width: 80%;" class="table table-striped table-hover table-bordered">
@@ -79,5 +83,10 @@
 </table>
 </div>
 
+  <footer class="py-5 bg-black fixed-bottom">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
