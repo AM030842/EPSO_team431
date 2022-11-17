@@ -26,11 +26,11 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><%= link_to "Create Meeting", href="/meetings/new", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances/new", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Member List", href="/members", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
               </ul>         
           </div>
       </div>
@@ -42,6 +42,9 @@
 <h1>Meetings</h1>
 
 <div class="container" id="table_container">
+
+<%= link_to 'Create Meeting', '/meetings/new', :class=>"btn btn-primary"%>
+
 <%= form_tag(meetings_path, method: :get) do %>
   <p> Search by title</p>
   <%= text_field_tag(:search, params[:search]) %>
