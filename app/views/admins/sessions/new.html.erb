@@ -4,6 +4,8 @@
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
+  
+
     
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,6 +35,8 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 </div>
             </div>
         </nav>
+       
+
         <!-- Header-->
         <header class="masthead text-center text-white">
             <div class="masthead-content">
@@ -48,6 +52,16 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
             <div class="bg-circle-3 bg-circle"></div>
             <div class="bg-circle-4 bg-circle"></div>
         </header>
+
+        <% flash.each do |type, msg| %>
+            <div class="alert alert-warning" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            
+          <% end %>
         <!-- Content section 1-->
         <section id="scroll">
             <div class="container px-5">
