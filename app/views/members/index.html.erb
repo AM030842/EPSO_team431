@@ -29,7 +29,7 @@
                   <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
                   <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                   <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                  <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
+                  <li class="nav-item nav-link"><img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem"></li>
                 </ul>         
           </div>
       </div>
@@ -38,7 +38,6 @@
 <p id="notice"><%= notice %></p>
 
 <br> <br> <br> <br>
-
 
 <h1>Members</h1>
 
