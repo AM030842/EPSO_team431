@@ -5,6 +5,8 @@ class MembersController < ApplicationController
   def index
     if params[:sort]
       @members = Member.order(params[:sort])
+    elsif params[:reverse_sort]
+        @members = Member.order(params[:reverse_sort]).reverse_order
     elsif params[:search]
       @members = search_members
     else
