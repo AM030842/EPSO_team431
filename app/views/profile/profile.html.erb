@@ -54,10 +54,12 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 
                 <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%> </div>
                 <p>
-                <%= "#{my_member.email}"%> <br> <br>
-                <%= "Points: #{my_member.points}"%> <br>
-                <%= "Degree: #{my_member.degree}"%> <br>
-                <%= "Division: #{my_member.division}"%>
+                <%= if my_member.inspect != "nil"%>
+                    <%= "#{my_member.email}"%> <br> <br>
+                    <%= "Points: #{my_member.points}"%> <br>
+                    <%= "Degree: #{my_member.degree}"%> <br>
+                    <%= "Division: #{my_member.division}"%>
+                <%=end%>
                 </p>
                 </div>
         
