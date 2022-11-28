@@ -83,7 +83,7 @@
         <td><%= link_to 'Show', attendance %></td>
         <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%></div>
         
-        <% if my_member.inspect.blank? %>
+        <% if my_member.inspect.blank? or current_admin.email == "tamu.epsodev@gmail.com" %>
           <% if current_admin.email == my_member.email or current_admin.email == "tamu.epsodev@gmail.com"%>
           <td>  <%= link_to 'Edit', edit_attendance_path(attendance) %></td>
           <% end %>
