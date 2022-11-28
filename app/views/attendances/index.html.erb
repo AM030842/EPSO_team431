@@ -30,7 +30,14 @@
                         <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li> 
+                        <div class="dropdown">
+                            <button class="dropbtn nav-link">
+                            <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem">
+                            </button>
+                            <div class="dropdown-content ">
+                            <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
+                            <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                        </div>
                      </ul>         
                 </div>
             </div>
@@ -75,12 +82,19 @@
         <td><%= Member.where(id: attendance.member_id).last.name %></td>
         <td><%= attendance.att_time %></td>
         <td><%= link_to 'Show', attendance %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+         <% if current_admin.email == member.email or current_admin.email == "tamu.epsodev@gmail.com"%>
+        <td>  <%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+        <% end %>
+        <% if current_admin.email == member.email or current_admin.email == "tamu.epsodev@gmail.com" %>
+        <td>  <%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+<p><em>You can only manage attendance through the email you logged in under.</em></p>
 </div>
 
   <footer class="py-5 bg-black fixed-bottom">

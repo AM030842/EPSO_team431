@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en" style="font-size: inherit">
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
@@ -39,57 +41,26 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <div class="dropdown-content ">
                             <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
-                        </div>
-                    </ul>
+                        </div>                    
+                        </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->  
 
                 <div class="container px-5" style="padding-top:7%">
-                    <h1 class="masthead-heading mb-0">Welcome, <%=current_admin.full_name %> </h1>
+                <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 7rem">
+                <h1 class="masthead-heading mb-0"><%=current_admin.full_name %> </h1>
+                
+                <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%> </div>
+                <p>
+                <%= "#{my_member.email}"%> <br> <br>
+                <%= "Points: #{my_member.points}"%> <br>
+                <%= "Degree: #{my_member.degree}"%> <br>
+                <%= "Division: #{my_member.division}"%>
+                </p>
                 </div>
-        <!-- Content section 1-->
-
-        <br><br>
-          <section>
-            <div class="container px-5">
-                <div class="row" style="padding-right:10%">
-                    <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-group"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Register', '/members/new', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">New? Register as an EPSO member</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-user-clock"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Attend Meeting', '/attendances/new', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Once you have registered, you can attend a meeting</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-roof"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Attendance List', '/attendances', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show all attendance history</h5>
-                                </div>
-                        </div>
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <br>
-        <br> 
-        <!-- Content section 1-->
+        
 
         <!-- Footer-->
         <footer class="py-5 bg-black fixed-bottom">

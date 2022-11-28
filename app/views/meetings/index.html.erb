@@ -30,8 +30,14 @@
                   <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
                   <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                   <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                  <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
-              </ul>         
+                  <div class="dropdown">
+                      <button class="dropbtn nav-link">
+                      <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem">
+                      </button>
+                    <div class="dropdown-content ">
+                      <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
+                      <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                  </div>              </ul>         
           </div>
       </div>
     </nav>
@@ -42,8 +48,9 @@
 <h1>Meetings</h1>
 
 <div class="container" id="table_container">
-
-<%= link_to 'Create Meeting', '/meetings/new', :class=>"btn btn-primary"%>
+<% if current_admin.email == "tamu.epsodev@gmail.com"%>
+  <%= link_to 'Create Meeting', '/meetings/new', :class=>"btn btn-primary"%>
+<% end %>
 
 <%= form_tag(meetings_path, method: :get) do %>
   <p> Search by title</p>
@@ -70,12 +77,20 @@
         <td><%= meeting.description %></td>
         <td><%= meeting.points %></td>
         <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Delete', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if current_admin.email == "tamu.epsodev@gmail.com"%>
+          <td>  <%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+        <% end %>
+        <% if current_admin.email == "tamu.epsodev@gmail.com" %>
+          <td>  <%= link_to 'Delete', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+<p><em>Only admins can add/edit/delete meetings.</em></p>
+
 </div>
 <br>
   <footer class="py-5 bg-black fixed-bottom">
