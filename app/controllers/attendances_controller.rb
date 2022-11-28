@@ -10,7 +10,7 @@ class AttendancesController < ApplicationController
     elsif not(params[:search_title].blank?)
       @attendances = search_att_title
     else
-      @attendances = Attendance.all
+      @attendances = Attendance.paginate(:page => params[:page], :per_page => 15)
     end
   end
 

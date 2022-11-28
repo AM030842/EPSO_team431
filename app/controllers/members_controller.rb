@@ -10,7 +10,7 @@ class MembersController < ApplicationController
     elsif params[:search]
       @members = search_members
     else
-      @members = Member.all
+      @members = Member.paginate(:page => params[:page], :per_page => 15)
     end
   end
 def search_members 
