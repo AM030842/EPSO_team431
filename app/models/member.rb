@@ -2,7 +2,7 @@ class Member < ApplicationRecord
     rolify
 
     has_many :meetings, through: :attendances
-    has_many :attendances
+    has_many :attendances, dependent: :destroy
     validates :name, :email, presence: true
     validates_uniqueness_of :email
 
