@@ -20,22 +20,28 @@
   </head>
 
 <body>
-  <%= yield %>
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container px-5">
-        <a class="navbar-brand" href="/">TAMU Educational Psychology Student Organization</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
-            </ul>         
-        </div>
-    </div>
-  </nav>
+    <%= yield %>
+   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container px-5">
+          <a class="navbar-brand" href="/">TAMU Educational Psychology Student Organization</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
+                  <div class="dropdown">
+                      <button class="dropbtn nav-link">
+                      <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem">
+                      </button>
+                    <div class="dropdown-content ">
+                      <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
+                      <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                  </div>              </ul>         
+          </div>
+      </div>
+    </nav>
 
 <p id="notice"><%= notice %></p>
 <br> <br> <br> <br>
