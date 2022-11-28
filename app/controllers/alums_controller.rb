@@ -8,7 +8,7 @@ class AlumsController < ApplicationController
     elsif params[:search]
       @alums = search_alums
     else
-      @alums = Alum.all
+      @alums = Alum.paginate(:page => params[:page], :per_page => 15)
     end
   end
 
