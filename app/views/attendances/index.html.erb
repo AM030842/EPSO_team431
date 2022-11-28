@@ -37,6 +37,7 @@
                             <div class="dropdown-content ">
                             <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                            <a><%= link_to "Help", help_index_path, :class=>"nav-link" %></a>
                         </div>
                      </ul>         
                 </div>
@@ -84,10 +85,10 @@
         <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%></div>
         
         <% if my_member.inspect.blank? or current_admin.email == "tamu.epsodev@gmail.com" %>
-          <% if current_admin.email == my_member.email or current_admin.email == "tamu.epsodev@gmail.com"%>
+          <% if  current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == my_member.email %>
           <td>  <%= link_to 'Edit', edit_attendance_path(attendance) %></td>
           <% end %>
-          <% if current_admin.email == my_member.email or current_admin.email == "tamu.epsodev@gmail.com" %>
+          <% if current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == my_member.email %>
           <td>  <%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         <%end %>

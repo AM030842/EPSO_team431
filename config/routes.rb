@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'help/index'
   get 'profile/profile'
   resources :alums
   resources :meetings
