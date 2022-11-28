@@ -81,7 +81,7 @@
         <td><%= Member.where(id: attendance.member_id).last.name %></td>
         <td><%= attendance.att_time %></td>
         <td><%= link_to 'Show', attendance %></td>
-        <%= my_member = Member.find_by(email: current_admin.email)%>
+        <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%></div>
         
         <% if my_member.inspect.blank? %>
           <% if current_admin.email == my_member.email or current_admin.email == "tamu.epsodev@gmail.com"%>
