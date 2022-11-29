@@ -4,7 +4,5 @@ class Member < ApplicationRecord
     has_many :attendances, dependent: :destroy
     validates :name, :email, presence: true
     validates_uniqueness_of :email
-
-
    
 end
