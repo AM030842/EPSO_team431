@@ -8,7 +8,7 @@ class MeetingsController < ApplicationController
     elsif params[:search]
       @meetings = search_meetings
     else
-      @meetings = Meeting.all
+      @meetings = Meeting.paginate(:page => params[:page], :per_page => 15)
     end
   end
 def search_meetings 
