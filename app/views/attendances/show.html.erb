@@ -53,8 +53,14 @@
   <strong>Att time:</strong>
   <%= @attendance.att_time %>
 </p>
+<div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%></div>
+        
+        <% if my_member != nil or current_admin.email == "tamu.epsodev@gmail.com" %>
+          <% if  current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == my_member.email %>
+            <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+          <% end %>
+        <%end %>
 
-<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
 <%= link_to 'Back', attendances_path %>
 
 </div>

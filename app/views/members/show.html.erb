@@ -64,7 +64,10 @@
   <%= @member.division %>
 </p>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
+<% if current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == member.email %>
+  <%= link_to 'Edit', edit_member_path(@member) %> |
+<% end %>
+
 <%= link_to 'Back', members_path %>
 
 

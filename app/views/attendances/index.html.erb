@@ -82,14 +82,13 @@
         <td><%= Member.where(id: attendance.member_id).last.name %></td>
         <td><%= attendance.att_time %></td>
         <td><%= link_to 'Show', attendance %></td>
+        
         <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%></div>
         
-        <% if my_member.inspect.blank? or current_admin.email == "tamu.epsodev@gmail.com" %>
+        <% if my_member != nil or current_admin.email == "tamu.epsodev@gmail.com" %>
           <% if  current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == my_member.email %>
-          <td>  <%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-          <% end %>
-          <% if current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == my_member.email %>
-          <td>  <%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>  <%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+            <td>  <%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         <%end %>
 
