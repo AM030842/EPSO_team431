@@ -4,11 +4,11 @@ class AttendancesController < ApplicationController
   # GET /attendances or /attendances.json
   def index
     if params[:sort]
-      @attendances = Attendance.order(params[:sort])
+      @attendances = Attendance.order(params[:sort]).paginate(:page => params[:page], :per_page => 15)
     elsif not(params[:search_name].blank?)
-        @attendances = search_att_name
+        @attendances = search_att_name.paginate(:page => params[:page], :per_page => 15)
     elsif not(params[:search_title].blank?)
-      @attendances = search_att_title
+      @attendances = search_att_title.paginate(:page => params[:page], :per_page => 15)
     else
       @attendances = Attendance.paginate(:page => params[:page], :per_page => 15)
     end

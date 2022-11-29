@@ -4,9 +4,9 @@ class MeetingsController < ApplicationController
   # GET /meetings or /meetings.json
   def index
     if params[:sort]
-      @meetings = Meeting.order(params[:sort])
+      @meetings = Meeting.order(params[:sort]).paginate(:page => params[:page], :per_page => 15)
     elsif params[:search]
-      @meetings = search_meetings
+      @meetings = search_meetings.paginate(:page => params[:page], :per_page => 15)
     else
       @meetings = Meeting.paginate(:page => params[:page], :per_page => 15)
     end

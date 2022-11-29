@@ -4,9 +4,9 @@ class AlumsController < ApplicationController
   # GET /alums or /alums.json
   def index
     if params[:sort]
-      @alums = Alum.order(params[:sort])
+      @alums = Alum.order(params[:sort]).paginate(:page => params[:page], :per_page => 15)
     elsif params[:search]
-      @alums = search_alums
+      @alums = search_alums.paginate(:page => params[:page], :per_page => 15)
     else
       @alums = Alum.paginate(:page => params[:page], :per_page => 15)
     end

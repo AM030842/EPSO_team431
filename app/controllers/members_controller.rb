@@ -4,11 +4,11 @@ class MembersController < ApplicationController
   #GET /members or /members.json
   def index
     if params[:sort]
-      @members = Member.order(params[:sort])
+      @members = Member.order(params[:sort]).paginate(:page => params[:page], :per_page => 15)
     elsif params[:reverse_sort]
-        @members = Member.order(params[:reverse_sort]).reverse_order
+        @members = Member.order(params[:reverse_sort]).reverse_order.paginate(:page => params[:page], :per_page => 15)
     elsif params[:search]
-      @members = search_members
+      @members = search_members.paginate(:page => params[:page], :per_page => 15)
     else
       @members = Member.paginate(:page => params[:page], :per_page => 15)
     end
