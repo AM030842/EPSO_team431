@@ -68,7 +68,8 @@ An RSpec test suite is available and can be ran using:
 		- Will automatically deploy to production
 		- [Insert Link]
 ## CI/CD
-TBD
+Brakeman and Rspec used for CI/CD
+Tests for sunny and rainy day user input
 
 ## Support
 Admins looking for support should first look at the application help page. Users looking for help seek out assistance from the customer.
