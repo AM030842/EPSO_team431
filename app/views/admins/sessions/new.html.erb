@@ -4,6 +4,8 @@
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
+  
+
     
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -28,12 +30,13 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                        <li class="nav-item"> <%= link_to "Google Sign in", admin_google_oauth2_omniauth_authorize_path, :class=>"nav-link"  %>"></li>                
+                        <li class="nav-item"> <%= link_to "Google Sign in", admin_google_oauth2_omniauth_authorize_path, :class=>"nav-link"  %></li>                
                     </ul>
                 </div>
             </div>
         </nav>
+       
+
         <!-- Header-->
         <header class="masthead text-center text-white">
             <div class="masthead-content">
@@ -49,6 +52,16 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
             <div class="bg-circle-3 bg-circle"></div>
             <div class="bg-circle-4 bg-circle"></div>
         </header>
+
+        <% flash.each do |type, msg| %>
+            <div class="alert alert-warning" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            
+          <% end %>
         <!-- Content section 1-->
         <section id="scroll">
             <div class="container px-5">

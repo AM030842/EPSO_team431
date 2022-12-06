@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="en" style="font-size: inherit">
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
-   
+    
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>TAMU EPSO</title>
@@ -30,7 +28,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Attendance", href="/attendances", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
                         <div class="dropdown">
                             <button class="dropbtn nav-link">
@@ -40,61 +38,28 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Help", help_index_path, :class=>"nav-link" %></a>
-                        </div>
-                    </ul>
+                        </div>                    
+                        </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->  
 
-                <div class="container px-5" style="padding-top:7%">
-                    <h1 class="masthead-heading mb-0">Welcome, EPSO Leadership Team</h1>
-                    <h2 class="masthead-subheading mb-0"><em>Click on any tile to view a dashboard</em></h2>
+                <div class="container px-5" style="padding-top:10%">
+                <h1>Help Docs</h1>
+                <h4>FAQ</h4>
+                <h5>How do I attend a meeting?</h5>
+                <p>You can attend a meeting by registering as a member, then clicking on "Attend Meeting" at the top. On that page is a "Submit Attendace" button.
+                Select the correct the meeting you want to attend your name from the member list. </p>
+                
+                <h4>Administrator Documentation</h4>
+                <iframe src="https://drive.google.com/file/d/1md6SEP3C5-H83QxL1kbRSQPagcYI4V0L/preview" width="640" height="480" allow="autoplay"></iframe>
+
                 </div>
-              
-        <!-- Content section 1-->
+        
 
-        <br><br>
-          <section>
-            <div class="container px-5">
-                <div class="row" style="padding-right:10%">
-                    <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-group"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Members', '/members', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show member points</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-user-clock"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Attendance', '/attendances', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show attendance history</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-roof"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Meetings', '/meetings', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show meeting history</h5>
-                                </div>
-                        </div>
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <br>
-        <br> 
-       
         <!-- Footer-->
-        <footer class="py-5 bg-black fixed-bottom">
+        <footer class="py-1 bg-black fixed-bottom">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->

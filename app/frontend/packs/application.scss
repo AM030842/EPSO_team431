@@ -9,6 +9,12 @@ h1 {
 .table{
     margin:0 auto;
 }
+#meet-table{
+  word-wrap: break-all;
+  table-layout: fixed;
+  word-break: break-all;
+  
+}
 
 #notice{
   text-align: center;

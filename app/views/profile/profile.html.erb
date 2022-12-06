@@ -1,11 +1,13 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en" style="font-size: inherit">
 <!--BOOTSTRAP: Latest compiled and minified CSS -->
 
     <head>
-   
+    
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>TAMU EPSO</title>
@@ -30,7 +32,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Attendance", href="/attendances", :class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                         <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
                         <div class="dropdown">
                             <button class="dropbtn nav-link">
@@ -40,61 +42,35 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
                             <a><%= link_to "Help", help_index_path, :class=>"nav-link" %></a>
-                        </div>
-                    </ul>
+                        </div>                    
+                        </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->  
 
                 <div class="container px-5" style="padding-top:7%">
-                    <h1 class="masthead-heading mb-0">Welcome, EPSO Leadership Team</h1>
-                    <h2 class="masthead-subheading mb-0"><em>Click on any tile to view a dashboard</em></h2>
+                <br>
+                <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 5rem">
+                <h1 class="masthead-heading mb-0"><%=current_admin.full_name %> </h1>
+                
+                <div style="font-size: 0px"><%= my_member = Member.find_by(email: current_admin.email)%> </div>
+                <p>
+                <% if my_member == nil%>
+                    <p>Looking for profile details? Register as a member with the email you logged in with.</p>
+                <%end%>
+                <% if my_member != nil %>
+                    <%= "#{my_member.email}"%> <br> <br>
+                    <%= "Points: #{my_member.points}"%> <br>
+                    <%= "Degree: #{my_member.degree}"%> <br>
+                    <%= "Division: #{my_member.division}"%>
+                <%end%>
+                </p>
                 </div>
-              
-        <!-- Content section 1-->
+        
 
-        <br><br>
-          <section>
-            <div class="container px-5">
-                <div class="row" style="padding-right:10%">
-                    <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-group"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Members', '/members', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show member points</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-user-clock"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Attendance', '/attendances', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show attendance history</h5>
-                                </div>
-                        </div>
-                        </div>
-                        <div class="col-4">
-                        <div class="card" >
-                               <i  style="color:black; font-size: 80px; padding: 5px" class="fa-solid fa-people-roof"></i>
-                                <div class="card-body">
-                                    <%= link_to 'Meetings', '/meetings', :class=>"btn btn-primary"%>
-                                    <h5 class="card-title">Show meeting history</h5>
-                                </div>
-                        </div>
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <br>
-        <br> 
-       
         <!-- Footer-->
-        <footer class="py-5 bg-black fixed-bottom">
+        <footer class="py-1 bg-black fixed-bottom">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->

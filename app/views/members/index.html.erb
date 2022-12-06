@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html style="font-size: inherit">
   <head>
      <meta charset="utf-8" />
@@ -25,11 +26,19 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ms-auto">
-                 <li class="nav-item"><%= link_to "Register", href="/members/new", :class=>"nav-link" %></li>
-                 <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances/new", :class=>"nav-link" %></li>
-                  <li class="nav-item"><%= link_to "Member List", href="/members", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
                   <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                  <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
+                  <div class="dropdown">
+                      <button class="dropbtn nav-link">
+                      <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem">
+                      </button>
+                    <div class="dropdown-content ">
+                      <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
+                      <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                      <a><%= link_to "Help", help_index_path, :class=>"nav-link" %></a>
+                  </div>
                 </ul>         
           </div>
       </div>
@@ -43,6 +52,9 @@
 <h1>Members</h1>
 
 <div class="container" id="table_container">
+
+<%= link_to 'Register', '/members/new', :class=>"btn btn-primary"%>
+
 <%= form_tag(members_path, method: :get) do %>
   <p> Search by name</p>
   <%= text_field_tag(:search, params[:search]) %>
@@ -54,7 +66,7 @@
     <tr>
       <th><%= link_to "Name", :sort => "name" %></th>
       <th><%= link_to "Email", :sort => "email" %></th>
-      <th><%= link_to "Points", :sort => "points" %></th>
+      <th><%= link_to "Points", :reverse_sort => "points" %></th>
       <th><%= link_to "Degree", :sort => "degree" %></th>
       <th><%= link_to "Division", :sort => "division" %></th>
       <th colspan="3">Operations</th>
@@ -70,14 +82,31 @@
         <td><%= member.degree %></td>
         <td><%= member.division %></td>
         <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == member.email %>
+        <td>  <%= link_to 'Edit', edit_member_path(member) %></td>
+        <% end %>
+        <% if  current_admin.email == "tamu.epsodev@gmail.com" or current_admin.email == member.email %>
+        <td>  <%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div class="pagination justify-content-center">
+<%= will_paginate @members %>
 </div>
 
+<p><em>You can only edit and delete your own account.</em></p>
+
+
+
+</div>
 <br>
+  <footer class="py-1 bg-black fixed-bottom">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

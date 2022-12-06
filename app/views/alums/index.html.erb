@@ -18,7 +18,8 @@
     <%= stylesheet_link_tag 'application.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+
+<body>
     <%= yield %>
    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container px-5">
@@ -26,8 +27,19 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ms-auto">
-                      <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
-                      <li class="nav-item"><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Members", href="/members", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Meetings", href="/meetings", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Attend Meeting", href="/attendances", :class=>"nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Alumni", href="/alums", :class=>"nav-link" %></li>
+                  <div class="dropdown">
+                        <button class="dropbtn nav-link">
+                        <img src="<%=(current_admin.avatar_url)%>"  class="profile-pic" style="height: 2rem">
+                        </button>
+                        <div class="dropdown-content ">
+                        <a><%= link_to "Sign Out", destroy_admin_session_path, :class=>"nav-link" %></a>
+                        <a><%= link_to "Profile", profile_profile_path, :class=>"nav-link" %></a>
+                        <a><%= link_to "Help", help_index_path, :class=>"nav-link" %></a>
+                    </div>
                 </ul>         
           </div>
       </div>
@@ -38,6 +50,9 @@
 
 <h1>Alumni</h1>
 <div class="container" id="table_container">
+
+<%= link_to 'Add Alum', '/alums/new', :class=>"btn btn-primary"%>
+
 <%= form_tag(alums_path, method: :get) do %>
   <p> Search by name</p>
   <%= text_field_tag(:search, params[:search]) %>
@@ -69,7 +84,16 @@
     <% end %>
   </tbody>
 </table>
+<div class="pagination justify-content-center">
+<%= will_paginate @alums %>
+</div>
 
 <br>
+  <footer class="py-1 bg-black fixed-bottom">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; TAMU EPSO 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
