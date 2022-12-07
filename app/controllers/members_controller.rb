@@ -44,6 +44,7 @@ end
   def create
     @member = Member.new(member_params)
     @member.points = 0
+    @member.email = current_admin.email
 
     respond_to do |format|
       if @member.save
