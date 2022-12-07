@@ -43,6 +43,7 @@ end
   # POST /members or /members.json
   def create
     @member = Member.new(member_params)
+    @member.points = 0
 
     respond_to do |format|
       if @member.save
